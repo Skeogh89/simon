@@ -1,11 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Simon</title>
+	<link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+	<script src="simon.js"></script>
+
 </head>
+
 <body>
-    
+	<div class="simon-game" ng-app="simonGame" ng-controller="SimonController as game"
+		ng-class="{on: game.getPowerState(), strict: game.getStrictState()}">
+		<button class="top-left" ng-mousedown="game.pressColor(0)" ng-class="{lit: game.buttons[0].lit}"></button>
+		<button class="top-right" ng-mousedown="game.pressColor(1)" ng-class="{lit: game.buttons[1].lit}"></button>
+		<button class="bottom-right" ng-mousedown="game.pressColor(2)" ng-class="{lit: game.buttons[2].lit}"></button>
+		<button class="bottom-left" ng-mousedown="game.pressColor(3)" ng-class="{lit: game.buttons[3].lit}"></button>
+		<div class="spacer-vertical center-x"></div>
+		<div class="spacer-horizontal center-y"></div>
+		<div class="middle center-both">
+			<h1>Simon<sup>&reg;</sup></h1>
+			<div class="center-controls center-x">
+				<div class="control control-lg">
+					<div class="count-display"><span class="center-both" ng-bind="game.getCountText()"></span></div>
+					<label>Count</label>
+				</div>
+				<div class="control control-sm">
+					<button class="start" ng-click="game.start()"></button>
+					<label>Start</label>
+				</div>
+				<div class="control control-sm">
+					<button class="strict-toggler" ng-click="game.toggleStrict()"></button>
+					<label>Strict</label>
+				</div>
+				<div class="strict-indicator"></div>
+			</div>
+			<div class="control on-off center-x">
+				<label>Off</label>
+				<div ng-click="game.togglePower()" class="on-off-wrapper">
+					<button ng-class="{on: game.getPowerState()}"></button>
+				</div>
+				<label>On</label>
+			</div>
+		</div>
+	</div>
+
+
 </body>
+
 </html>

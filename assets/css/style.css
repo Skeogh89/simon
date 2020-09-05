@@ -1,0 +1,298 @@
+/****************************
+* RESET
+*****************************/
+/* https://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/****************************
+* GENERAL & GAME BACKGROUND
+*****************************/
+.simon-game {
+  margin: auto;
+  margin-top: 20px;
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 0 20px 5px #888;
+}
+
+.spacer-vertical {
+  width: 25px;
+  height: 400px;
+}
+
+.spacer-horizontal {
+  width: 400px;
+  height: 25px;
+}
+
+.simon-game,
+.spacer-vertical,
+.spacer-horizontal {
+  background-color: #222;
+}
+
+.simon-game>div,
+.simon-game>button {
+  position: absolute;
+}
+
+button {
+  border: 0;
+  outline: 0 !important;
+  cursor: pointer;
+}
+
+/************************
+* COLOR BUTTONS
+************************/
+.simon-game>button {
+  width: 200px;
+  height: 200px;
+}
+
+button.top-left {
+  background-color: #090;
+  border-radius: 100% 0 0 0;
+  right: 50%;
+}
+
+.simon-game.on button.top-left.lit {
+  background-color: #0c0;
+}
+
+button.top-right {
+  background-color: #bc2000;
+  left: 50%;
+  border-radius: 0 100% 0 0;
+}
+
+.simon-game.on button.top-right.lit {
+  background-color: red;
+}
+
+button.bottom-right {
+  background-color: #0002bc;
+  top: 50%;
+  left: 50%;
+  border-radius: 0 0 100% 0;
+}
+
+.simon-game.on button.bottom-right.lit {
+  background-color: blue;
+}
+
+button.bottom-left {
+  background-color: #bcbc20;
+  top: 50%;
+  border-radius: 0 0 0 100%;
+}
+
+.simon-game.on button.bottom-left.lit {
+  background-color: yellow;
+}
+
+/************************
+* MIDDLE
+************************/
+.middle {
+  height: 200px;
+  width: 200px;
+  background-color: #bbb;
+  border: 15px solid #222;
+  border-radius: 50%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.middle label {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Ultra', serif;
+  color: #111;
+  font-size: 36px;
+  margin-top: 36px;
+  margin-bottom: 14px;
+}
+
+h1 sup {
+  font-weight: normal;
+  font-size: 55%;
+  vertical-align: super;
+}
+
+.control.on-off {
+  position: absolute;
+  bottom: 15px;
+}
+
+.on-off-wrapper {
+  display: inline-block;
+  position: relative;
+  top: 4px;
+  width: 35px;
+  height: 19px;
+  background-color: #0a0a0a;
+  cursor: pointer;
+}
+
+.on-off button {
+  position: absolute;
+  display: inline-block;
+  top: 2px;
+  left: 2px;
+  width: 15px;
+  height: 15px;
+  background-color: #0089ff;
+  transition: left 0.1s;
+}
+
+.on-off button.on {
+  left: 18px;
+}
+
+/************************
+* CENTER CONTROLS
+************************/
+.center-controls {
+  width: 155px;
+  position: absolute;
+}
+
+.center-controls .control {
+  text-align: center;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+div.control:first-of-type {
+  margin-left: 0;
+}
+
+.center-controls .control>div,
+.center-controls .control>button {
+  border: 4px solid #222;
+}
+
+.control-lg {
+  width: 60px;
+}
+
+.count-display {
+  position: relative;
+  width: 50px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #300;
+}
+
+.count-display>span {
+  position: absolute;
+  font-size: 20px;
+  font-family: monospace;
+  font-weight: bold;
+  color: red;
+  cursor: default;
+}
+
+.control-sm button {
+  display: block;
+  margin: auto;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+}
+
+button.start {
+  background-color: red;
+}
+
+button.strict-toggler {
+  background-color: yellow;
+}
+
+.strict-indicator {
+  position: relative;
+  left: 146px;
+  top: -50px;
+  background: #300;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  border: 3px solid #222;
+}
+
+.simon-game.strict .strict-indicator {
+  background-color: red;
+}
+
+/************************
+* UTILITY
+************************/
+/* 
+.center-* rules assume 'position: absolute' and a non-static ancestor */
+.center-x {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.center-y {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.center-both {
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
